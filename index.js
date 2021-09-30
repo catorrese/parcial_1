@@ -37,14 +37,22 @@ function processCategories(data) {
 
 function createCards(data) {
   let newCardGroup = document.createElement("div");
-  newCardGroup.classList.add("card-group");
+  newCardGroup.classList.add("row");
+  newCardGroup.classList.add("row-cols-2");
+  newCardGroup.classList.add("row-cols-md-4");
+  newCardGroup.classList.add("g-4");
   data.forEach((element) => {
+    let col = document.createElement("div");
+    col.classList.add("col");
+
     let card = document.createElement("div");
     card.classList.add("card");
+    card.style.height = "500px";
 
     let img = document.createElement("img");
     img.src = element.image;
     img.classList.add("card-img-top");
+    img.style.height = "180px";
 
     let cardBody = document.createElement("div");
     cardBody.classList.add("card-body");
@@ -57,6 +65,7 @@ function createCards(data) {
     let cardText = document.createElement("p");
     cardText.textContent = element.description;
     cardText.classList.add("card-text");
+    cardText.style.fontSize = "15px";
     cardBody.appendChild(cardText);
 
     let cardPrice = document.createElement("h7");
@@ -66,7 +75,9 @@ function createCards(data) {
     card.appendChild(img);
     card.appendChild(cardBody);
 
-    newCardGroup.appendChild(card);
+    col.appendChild(card);
+
+    newCardGroup.appendChild(col);
   });
   cardGroup.parentNode.replaceChild(newCardGroup, cardGroup);
   cardGroup = newCardGroup;

@@ -4,6 +4,16 @@ header {
   left: 0px;
   top: 2px;
   font-family: "Satisfy", cursive;
+  border-bottom: 1px solid #dee2e6;
+  margin-bottom: 1rem;
+}
+
+.central{
+
+}
+
+h3{
+  align-content: center;
 }
 
 .caja {
@@ -27,54 +37,7 @@ header {
   background: url(./assets/carrito.png);
 }
 
-.tabla {
-  position: absolute;
-  width: 1240px;
-  left: 100px;
-  top: 159px;
-
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  box-sizing: border-box;
-}
-
-.fila {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  box-sizing: border-box;
-}
-
-.imagen {
-  width: 180px;
-  height: 180px;
-  margin-left: 44px;
-  margin-top: 30px;
-  margin-bottom: 11px;
-  border-radius: 15px;
-}
-
-.centro {
-  padding-left: 124px;
-}
-
 .final {
   padding-top: 30px;
   padding-bottom: 156px;
-}
-
-.bread {
-  position: absolute;
-  width: 520px;
-  height: 32px;
-  left: 99px;
-  top: 114px;
-
-  font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  text-align: justify;
-
-  color: rgba(0, 0, 0, 0.67);
 }
