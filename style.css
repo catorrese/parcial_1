@@ -3,41 +3,58 @@ header {
   height: 50px;
   left: 0px;
   top: 2px;
-  font-family: "Satisfy", cursive;
+  
+  border-bottom: 1px solid #dee2e6;
+  margin-bottom: 1rem;
+}
+
+#central{
   border-bottom: 1px solid #dee2e6;
   margin-bottom: 1rem;
 }
 
 .central{
-
+  
+  margin-bottom: 1rem;
 }
 
-h3{
-  align-content: center;
+#category{
+  border-top: 1px solid #dee2e6;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #dee2e6;
+  text-align: center;
 }
 
 .caja {
   position: absolute;
   width: 56px;
   height: 47px;
-  left: 1284px;
+  
   top: 20px;
 
   box-sizing: border-box;
 }
 
-.carrito {
-  position: relative;
-  height: 36px;
-  width: 36px;
-  left: 10px;
-  top: 5px;
-  border-radius: 0px;
-  border: none;
-  background: url(./assets/carrito.png);
+#carrito {
+  position: absolute;
+  left: 1020px;
+  padding: 0;
 }
 
-.final {
-  padding-top: 30px;
-  padding-bottom: 156px;
+#items {
+  position: absolute;
+  top: 15px;
+  left: 1090px;
+  
 }
+
+#title{
+  margin-top: 10px;
+  font-family: "Satisfy", cursive;
+  font-size: 20px;
+}
+
+

@@ -6,7 +6,11 @@ request.responseType = "json";
 request.send();
 let cardGroup = document.getElementById("cards");
 let category = document.getElementById("category");
-let products = Array;
+let itemsNum = document.getElementById("items");
+let carrito = document.getElementById("carrito");
+let products = Array();
+let contadorItems = 0;
+let order = Array();
 
 
 request.onload = function () {
@@ -16,6 +20,80 @@ request.onload = function () {
     processCategories(datos);
     category.textContent = "Burguers";
     createCards(products[0]);
+    carrito.addEventListener("click", function() {
+      category.textContent = "Order detail";
+
+      let tableOrder = document.createElement("table");
+      tableOrder.classList.add("table");
+      tableOrder.classList.add("table-striped");
+    
+
+      let tBody = document.createElement("tbody");
+      let headers = document.createElement("tr");
+
+      let hd1 = document.createElement("th");
+      hd1.textContent = "Item";
+      headers.appendChild(hd1);
+
+      let hd2 = document.createElement("th");
+      hd2.textContent = "Qty.";
+      headers.appendChild(hd2);
+      
+      
+      let hd3 = document.createElement("th");
+      hd3.textContent = "Description";
+      headers.appendChild(hd3);
+      
+      
+      let hd4 = document.createElement("th");
+      hd4.textContent = "Unit price";
+      headers.appendChild(hd4);
+      
+      
+      let hd5 = document.createElement("th");
+      hd5.textContent = "Amount";
+      headers.appendChild(hd5);
+      
+      
+      let hd6 = document.createElement("th");
+      hd6.textContent = "Modify";
+      headers.appendChild(hd6);
+      
+      tBody.appendChild(headers);
+
+      let contador = 0;
+
+      order.forEach((element) => {
+        contador++;
+        let row = document.createElement("tr");
+        let itm = document.createElement("td");
+        itm.textContent = contador;
+        row.appendChild(itm);
+
+        let qty = document.createElement("td");
+        qty.textContent = 1;
+        row.appendChild(qty);
+
+        let desc = document.createElement("td");
+        desc.textContent = element.name;
+        row.appendChild(desc);
+
+        let price = document.createElement("td");
+        price.textContent = element.price;
+        row.appendChild(price);
+
+        let am = document.createElement("td");
+        am.textContent = element.price;
+        row.appendChild(am);
+
+        tBody.appendChild(row);
+      });
+      
+      tableOrder.appendChild(tBody);
+      cardGroup.parentNode.replaceChild(tableOrder, cardGroup);
+      cardGroup = tableOrder;
+
+    });
   }
 };
 
@@ -52,7 +130,7 @@ function createCards(data) {
     let img = document.createElement("img");
     img.src = element.image;
     img.classList.add("card-img-top");
-    img.style.height = "180px";
+    img.style.height = "200px";
 
     let cardBody = document.createElement("div");
     cardBody.classList.add("card-body");
@@ -68,9 +146,21 @@ function createCards(data) {
     cardText.style.fontSize = "15px";
     cardBody.appendChild(cardText);
 
-    let cardPrice = document.createElement("h7");
+    let cardPrice = document.createElement("p");
     cardPrice.textContent = "$" + element.price;
     cardBody.appendChild(cardPrice);
+
+    let btn = document.createElement("a");
+    btn.classList.add("btn");
+    btn.classList.add("btn-dark");
+    btn.textContent = "Add to car";
+    btn.addEventListener("click", function() {
+      contadorItems++;
+      itemsNum.textContent = contadorItems + " items";
+      order.push(element);
+    });
+    cardBody.appendChild(btn);
+    
 
     card.appendChild(img);
     card.appendChild(cardBody);
